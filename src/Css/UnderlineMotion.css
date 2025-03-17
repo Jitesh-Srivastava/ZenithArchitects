@@ -1,0 +1,68 @@
+/* Basic text style */
+
+a {
+    text-decoration: none;
+}
+
+.double-underline {
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    /* Adjust text size as needed */
+    /* font-weight: bold; */
+    /* Optional: makes the text bolder */
+    color: black;
+    /* Text color */
+    padding-bottom: 5px;
+    /* Space between text and underline */
+}
+
+/* Double underline effect */
+.double-underline::before,
+.double-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    /* Height of the underlines */
+    background-color: black;
+    /* Color of the underline */
+    transform: scaleX(0);
+    /* Initially hidden (no width) */
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-in-out;
+    /* Smooth transition */
+}
+
+.double-underline::before {
+    left: 0;
+    transform-origin: bottom left;
+}
+
+.double-underline::after {
+    bottom: -4px;
+    /* Position the second line slightly below the first */
+    left: 0;
+    transform-origin: bottom left;
+}
+
+.double-underline:hover::before,
+.double-underline:hover::after {
+    transform: scaleX(1);
+    /* On hover, scale the underline to full width */
+}
+
+/* Class to apply the movement on hover */
+.move-right {
+    display: inline-block;
+    /* Ensure the element is treated as a block to allow transformation */
+    transition: transform 0.5s ease-in-out;
+    /* Smooth transition */
+}
+
+/* On hover, move the text slightly to the right */
+.move-right:hover {
+    transform: translateX(10px);
+    /* Adjust the value for desired movement */
+}

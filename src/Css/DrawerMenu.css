@@ -1,0 +1,131 @@
+/* Basic styles for the menu button */
+.menu-btn {
+    /* bottom: 20px; */
+    /* Position the button near the bottom */
+    /* left: 20px; */
+    background-color: transparent;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 100;
+    /* Make sure it's above other elements */
+    border-radius: 5px;
+}
+
+/* Drawer container */
+.drawer {
+    position: fixed;
+    bottom: -100%;
+    /* Initially hidden below the screen */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    /* Dark background */
+    color: black;
+    z-index: 99;
+    /* Below the button */
+    overflow: hidden;
+    transition: bottom 0.6s ease-in-out;
+    /* Smooth transition */
+}
+
+/* NavLink container */
+.drawer div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    /* Links are initially invisible */
+    transition: opacity 0.5s ease-in-out;
+    /* Smooth transition for visibility */
+}
+
+/* NavLink styles */
+.drawer div a {
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+    display: block;
+    margin: 20px 0;
+    padding: 10px 20px;
+    transition: background-color 0.5s ease;
+}
+
+/* Hover effect for NavLinks */
+.drawer div a:hover {
+    background-color: wheat;
+}
+
+/* Active drawer (when opened) */
+.drawer.open {
+    bottom: 0;
+    /* Move the drawer to the bottom */
+}
+
+.drawer.open div {
+    opacity: 1;
+    /* Show the NavLinks when drawer is fully opened */
+}
+
+
+/* Double Underline Animation */
+
+/* Basic text style for double underline */
+.double-underline-new {
+    position: relative;
+    display: inline-block;
+    /* font-size: 24px; */
+    /* Adjust text size as needed */
+    font-weight: bold;
+    /* Optional: makes the text bolder */
+    color: black;
+    /* Text color */
+}
+
+/* Double underline effect */
+.double-underline-new::before,
+.double-underline-new::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 0%;
+    /* Initially no width (invisible) */
+    height: 2px;
+    /* Height of the underlines */
+    background-color: black;
+    /* Color of the underline */
+    transition: width 0.3s ease-out;
+    /* Smooth transition for width */
+}
+
+.double-underline-new::before {
+    left: 0;
+    transform-origin: bottom left;
+    /* Start from the left */
+}
+
+.double-underline-new::after {
+    right: 0;
+    transform-origin: bottom right;
+    /* Start from the right */
+}
+
+.double-underline-new:hover::before,
+.double-underline-new:hover::after {
+    width: 100%;
+    /* On hover, expand to full width */
+}
+
+.double-underline-new:hover::before {
+    transition-delay: 0s;
+}
+
+.double-underline-new:hover::after {
+    transition-delay: 0.3s;
+    /* Slight delay for the second line */
+}
